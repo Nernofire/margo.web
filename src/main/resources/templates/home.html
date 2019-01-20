@@ -32,8 +32,11 @@
         <a class="navbar-brand" href="#">Start Bootstrap</a>
         <div sec:authorize="isAuthenticated()">
             Welcome <span sec:authentication="name"></span>!
+            <a class="btn btn-primary" th:href="@{/logout}">Log out</a>
         </div>
-        <a class="btn btn-primary" th:href="@{/login}">Sign In</a>
+        <div sec:authorize="!isAuthenticated()">
+            <a class="btn btn-primary" th:href="@{/login}">Log in</a>
+        </div>
         <!--<a class="btn btn-primary" href="#">Sign In</a>-->
     </div>
 </nav>
@@ -50,10 +53,11 @@
                 <form th:action="@{/hello}">
                     <div class="form-row">
                         <div class="col-12 col-md-9 mb-2 mb-md-0">
-                            <input type="email" class="form-control form-control-lg" placeholder="Enter your email...">
+                            <input type="email" class="form-control form-control-lg"
+                                   placeholder="Enter your message...">
                         </div>
                         <div class="col-12 col-md-3">
-                            <button class="btn btn-block btn-lg btn-primary">Sign up!</button>
+                            <button class="btn btn-block btn-lg btn-primary">Go!</button>
                         </div>
                     </div>
                 </form>
