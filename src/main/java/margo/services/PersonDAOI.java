@@ -24,12 +24,14 @@ public class PersonDAOI implements PersonDAO {
 
     @Override
     public Person savePerson(Person person) {
-        String insertSQL = "INSERT INTO public.person(login, password, username) values(:login, :password, :username);";
+        String insertSQL = "INSERT INTO public.person(login, password, username, isDeleted) " +
+                "values(:login, :password, :username, :isDeleted);";
         MapSqlParameterSource parameterSource = new MapSqlParameterSource();
 
         parameterSource.addValue("login", person.getLogin());
         parameterSource.addValue("password", person.getPassword());
-        parameterSource.addValue("username", person.getUsername());
+        parameterSource.addValue("name", person.getName());
+        parameterSource.addValue("isDeleted", person.isDeleted());
 
         int id = template.update(insertSQL, parameterSource);
 

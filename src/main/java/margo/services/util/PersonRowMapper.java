@@ -13,7 +13,7 @@ public class PersonRowMapper implements RowMapper<Person> {
         person.setId(resultSet.getLong("id"));
         person.setLogin(resultSet.getString("login"));
         person.setPassword(resultSet.getString("password"));
-        person.setUsername(resultSet.getString("username"));
+        person.setName(resultSet.getString("username"));
         person.setDeleted(resultSet.getBoolean("isDeleted"));
         return person;
     }
