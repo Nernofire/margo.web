@@ -1,26 +1,34 @@
 package margo.models;
 
+
 import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.Set;
 
+
+@Data
+@Getter
+@Setter
+@NoArgsConstructor
 @Entity
 @Table(name = "Transaction")
-public @Data
-class Transaction {
+public class Transaction {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long transaction_id;
+    @Column(nullable = false)
+    private Integer transaction_id;
     private Date transaction_date;
+    @Column(nullable = false)
     private String transaction_orderer;
     private Date transaction_accepted_date;
     private String transaction_acceptor;
-    @ManyToMany(cascade = {CascadeType.ALL})
-    @JoinTable(name = "transaction_product",
-            joinColumns = {@JoinColumn(name = "productId")},
-            inverseJoinColumns = {@JoinColumn(name = "orderId")})
-    private Set<Product> products;
+    @Column(length = 2048)
+    private String transaction_product_list;
+    @Column(nullable = false)
     private boolean transaction_is_deleted;
+
 }

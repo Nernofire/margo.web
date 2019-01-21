@@ -35,7 +35,7 @@ public class PersonDAOI implements PersonDAO {
 
         int id = template.update(insertSQL, parameterSource);
 
-        person.setId((long) id);
+        person.setId(id);
         return person;
     }
 

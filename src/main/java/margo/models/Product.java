@@ -1,31 +1,33 @@
 package margo.models;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
 import java.util.Date;
-import java.util.Set;
 
 @Entity
 @Table(name = "Product")
-public @Data
-class Product {
+@Getter
+@Setter
+@NoArgsConstructor
+public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long product_id;
+    private Integer product_id;
     @Column(nullable = false)
     private String product_name;
+    @Column(length = 1024)
     private String product_comment;
-    @ManyToMany(mappedBy = "products")
-    private Set<Transaction> transactions;
+    @Column(nullable = false)
     private boolean product_is_deleted;
     private Integer product_type;
-    private BigDecimal product_count;
+    private Double product_count;
     private String product_measurement;
-    private BigDecimal product_price_for_one;
-    private BigDecimal product_price_total;
-    private Long product_updater_id;
+    private Double product_price_for_one;
+    private Double product_price_total;
+    private Integer product_updater_id;
     private Date product_last_updated;
 
 }
