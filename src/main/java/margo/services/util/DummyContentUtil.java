@@ -1,7 +1,7 @@
 package margo.services.util;
 
 import margo.models.Person;
-import margo.services.PersonDAOI;
+import margo.services.PersonDAOImpl;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.util.ArrayList;
@@ -18,9 +18,9 @@ public class DummyContentUtil {
         appUsers.add(new Person("Nemat", "nemataka@mail.ru", nPassword));
         appUsers.add(new Person("Alisher", "alisheraka@mail.ru", aPassword));
 
-        PersonDAOI personDAOI = new PersonDAOI();
+        PersonDAOImpl personDAOImpl = new PersonDAOImpl();
         for (Person p : appUsers) {
-            personDAOI.savePerson(p);
+            personDAOImpl.savePerson(p);
         }
         return appUsers;
     }

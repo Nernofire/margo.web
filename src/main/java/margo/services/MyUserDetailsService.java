@@ -4,7 +4,6 @@ import margo.models.Person;
 import margo.models.PersonPrincipal;
 import margo.repository.PersonRepo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
@@ -22,7 +21,7 @@ public class MyUserDetailsService implements UserDetailsService {
     }
 
     @Override
-    public UserDetails loadUserByUsername(final String login) throws UsernameNotFoundException {
+    public PersonPrincipal loadUserByUsername(final String login) throws UsernameNotFoundException {
         final Person person = personRepo.findByLogin(login);
         if (person == null) {
             throw new UsernameNotFoundException(login);

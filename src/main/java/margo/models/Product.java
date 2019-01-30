@@ -14,7 +14,8 @@ import java.util.Date;
 @NoArgsConstructor
 public class Product {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(columnDefinition = "serial")
     private Integer product_id;
     @Column(nullable = false)
     private String product_name;

@@ -6,10 +6,13 @@ import margo.services.util.PersonRowMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-public class PersonDAOI implements PersonDAO {
+@Component
+public class PersonDAOImpl implements PersonDAO {
 
     @Autowired
     private NamedParameterJdbcTemplate template;
@@ -24,19 +27,16 @@ public class PersonDAOI implements PersonDAO {
 
     @Override
     public Person savePerson(Person person) {
-        String insertSQL = "INSERT INTO public.person(login, password, username, isDeleted) " +
-                "values(:login, :password, :username, :isDeleted);";
+        String insertSQL = "INSERT INTO public.person(login, password, name, is_deleted) " +
+                "values(:login, :password, :name, :is_deleted);";
         MapSqlParameterSource parameterSource = new MapSqlParameterSource();
-
+        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
         parameterSource.addValue("login", person.getLogin());
-        parameterSource.addValue("password", person.getPassword());
+        parameterSource.addValue("password", bCryptPasswordEncoder.encode(person.getPassword()));
         parameterSource.addValue("name", person.getName());
-        parameterSource.addValue("isDeleted", person.isDeleted());
-
+        parameterSource.addValue("is_deleted", person.isDeleted());
         int id = template.update(insertSQL, parameterSource);
-
         person.setId(id);
         return person;
     }
-
 }

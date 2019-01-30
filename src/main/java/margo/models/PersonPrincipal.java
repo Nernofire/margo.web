@@ -49,4 +49,12 @@ public class PersonPrincipal implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
+    public String getPersonName() {
+        return this.person.getName();
+    }
+
+    public Integer getPersonId() {
+        return this.person.getId();
+    }
 }

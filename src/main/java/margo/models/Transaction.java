@@ -18,8 +18,8 @@ import java.util.Date;
 @Table(name = "Transaction")
 public class Transaction {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(columnDefinition = "serial", nullable = false)
     private Integer transaction_id;
     private Date transaction_date;
     @Column(nullable = false)

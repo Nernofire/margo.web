@@ -28,4 +28,14 @@ public class MainController {
     public String actionAccessDenied(Model model) {
         return "errors/access_denied";
     }
+
+    @RequestMapping(value = "/person")
+    public String person() {
+        return "person";
+    }
+
+    @RequestMapping(value = "/notifications")
+    public String notifications() {
+        return "notifications";
+    }
 }
