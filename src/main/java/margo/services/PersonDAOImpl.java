@@ -2,7 +2,7 @@ package margo.services;
 
 import margo.models.Person;
 import margo.services.dao.PersonDAO;
-import margo.services.util.PersonRowMapper;
+import margo.services.util.rowMapper.PersonRowMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;

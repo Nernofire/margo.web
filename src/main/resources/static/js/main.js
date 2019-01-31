@@ -47,3 +47,21 @@ app.controller("MainCtrl", function ($scope, $http) {
         });
     }
 });
+app.controller("TransactionCtrl", function ($scope, $http) {
+    $scope.transactions = [];
+    $http({
+        method: 'GET',
+        url: 'api/transactions/getAll'
+    }).then(function (response) {
+        $scope.transactions = response.data;
+    });
+    $scope.postTransaction = function () {
+        $http({
+            method: "POST",
+            url: '/api/transactions/postTransactions',
+            data: $scope.notification
+        }).then(function (response) {
+            $scope.transactions = response.data;
+        });
+    }
+});

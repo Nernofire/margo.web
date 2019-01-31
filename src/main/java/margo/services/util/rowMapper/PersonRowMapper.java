@@ -1,4 +1,4 @@
-package margo.services.util;
+package margo.services.util.rowMapper;
 
 import margo.models.Person;
 import org.springframework.jdbc.core.RowMapper;

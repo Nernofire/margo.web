@@ -1,4 +1,4 @@
-package margo.services.util;
+package margo.services.util.rowMapper;
 
 import margo.models.Notification;
 import org.springframework.jdbc.core.RowMapper;

@@ -4,7 +4,7 @@ import margo.models.Notification;
 import margo.models.Person;
 import margo.repository.PersonRepo;
 import margo.services.dao.NotificationDAO;
-import margo.services.util.NotificationRowMapper;
+import margo.services.util.rowMapper.NotificationRowMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;

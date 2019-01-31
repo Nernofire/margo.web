@@ -38,4 +38,9 @@ public class MainController {
     public String notifications() {
         return "notifications";
     }
+
+    @RequestMapping("/transactions")
+    public String transactions() {
+        return "transaction";
+    }
 }

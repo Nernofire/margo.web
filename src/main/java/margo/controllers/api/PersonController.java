@@ -26,7 +26,7 @@ public class PersonController {
     }
 
     @PostMapping(value = "/postPerson")
-    public ResponseEntity<List<Person>> postPerson(@Valid @RequestBody Person person) {
+    public ResponseEntity<List<Person>> createPerson(@Valid @RequestBody Person person) {
         personDAO.savePerson(person);
         return new ResponseEntity(personDAO.getAll(), HttpStatus.OK);
     }
