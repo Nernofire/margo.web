@@ -46,56 +46,60 @@
         </div>
     </div>
 </nav>
-<!-- add new row -->
-<header class="masthead text-white text-center">
-    <div class="overlay"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col-xl-9 mx-auto">
-                <h1 class="mb-5 text-dark">Publish your notification to other users!</h1>
-            </div>
-            <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-                <form ng-submit="postNotification()">
-                    <div class="form-row">
-                        <div class="col-12 col-md-9 mb-2 mb-md-0">
-                            <input class="form-control form-control-lg" ng-model="notification.notification_message"
-                                   type="text" id="notificationTextBox">
+
+<div ng-controller="MainCtrl">
+    <!-- add new row -->
+    <header class="masthead text-white text-center">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-9 mx-auto">
+                    <h1 class="mb-5 text-dark">Publish your notification to other users!</h1>
+                </div>
+                <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+                    <form ng-submit="postNotification()">
+                        <div class="form-row">
+                            <div class="col-12 col-md-9 mb-2 mb-md-0">
+                                <input class="form-control form-control-lg" ng-model="notification.notification_message"
+                                       type="text" id="notificationTextBox">
+                            </div>
+                            <div class="col-12 col-md-3">
+                                <input class="btn btn-block btn-lg btn-primary" type="submit"/>
+                            </div>
                         </div>
-                        <div class="col-12 col-md-3">
-                            <input class="btn btn-block btn-lg btn-primary" type="submit"/>
-                        </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
-</header>
-<!--Table-->
-<div ng-controller="MainCtrl">
+    </header>
+    <!--Table-->
+    <div>
 
-    <div class="container">
+        <div class="container">
 
-        <table class="table table-hover">
-            <thead>
-            <tr>
-                <th> #</th>
-                <th> Sender</th>
-                <th> Message</th>
-                <th> Date</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr ng-repeat="notif in notifications">
-                <td>{{notif.notification_id}}</td>
-                <td>{{notif.notification_sender}}</td>
-                <td>{{notif.notification_message}}</td>
-                <td>{{notif.notification_date}}</td>
-            </tr>
-            </tbody>
-        </table>
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th> #</th>
+                    <th> Sender</th>
+                    <th> Message</th>
+                    <th> Date</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="notif in notifications">
+                    <td>{{notif.notification_id}}</td>
+                    <td>{{notif.notification_sender}}</td>
+                    <td>{{notif.notification_message}}</td>
+                    <td>{{notif.notification_date}}</td>
+                </tr>
+                </tbody>
+            </table>
 
+        </div>
     </div>
 </div>
+
 
 </body>
 

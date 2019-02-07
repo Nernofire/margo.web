@@ -4,6 +4,7 @@ import margo.models.Transaction;
 import margo.repository.TransactionRepo;
 import margo.services.dao.TransactionDAO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -11,6 +12,8 @@ import java.util.List;
 
 @Component
 public class TransactionDAOImpl implements TransactionDAO {
+    @Autowired
+    private NamedParameterJdbcTemplate template;
     @Autowired
     private TransactionRepo transactionRepo;
 

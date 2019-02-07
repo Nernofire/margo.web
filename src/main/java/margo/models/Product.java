@@ -27,7 +27,6 @@ public class Product {
     private Double product_count;
     private String product_measurement;
     private Double product_price_for_one;
-    private Double product_price_total;
     private Integer product_updater_id;
     private Date product_last_updated;
 
