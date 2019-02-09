@@ -59,7 +59,7 @@ app.controller("TransactionCtrl", function ($scope, $http) {
         $http({
             method: "POST",
             url: '/api/transactions/postTransactions',
-            data: $scope.notification
+            data: $scope.transaction
         }).then(function (response) {
             $scope.transactions = response.data;
         });

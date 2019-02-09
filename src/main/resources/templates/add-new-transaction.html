@@ -46,63 +46,19 @@
         </div>
     </div>
 </nav>
-
-<!--Add new row-->
-<!--TODO-->
-
-<!--Table-->
+<!--Add new transaction-->
 <div>
-    <div class="container">
-        <table class="table table-hover table-sm">
-            <thead>
-            <tr>
-                <th> #</th>
-                <th> Date</th>
-                <th> Orderer</th>
-                <th> Accepted date</th>
-                <th> Acceptor</th>
-                <th> Deleted status</th>
-            </tr>
-            </thead>
-            <tbody ng-repeat="i in transactions">
-            <div>
-                <!--<table>-->
-                <!--<tbody ng-repeat="i in phones">-->
-                <!--<tr><td>{{i.name}}</td><td>{{$index}}</td></tr>-->
-                <!--<tr ng-repeat="e in i.details">-->
-                <!--<td>{{$index}}</td>-->
-                <!--<td>{{e.foo}}</td>-->
-                <!--<td>{{e.bar}}</td></tr>-->
-                <!--</tbody>-->
-                <!--</table>-->
-                <tr>
-                    <td>{{$index+1}}</td>
-                    <td>{{i.transaction_date}}</td>
-                    <td>{{i.transaction_orderer.name}}</td>
-                    <td>{{i.transaction_accepted_date}}</td>
-                    <td>{{i.transaction_acceptor.name}}</td>
-                    <td>{{i.transaction_is_deleted}}</td>
-                </tr>
-                <tr>
-                    <th> Product name</th>
-                    <th> Price per unit</th>
-                    <th> Quantity</th>
-                    <th> Subtotal price</th>
-                </tr>
-                <tr ng-repeat="e in i.transaction_product">
-                    <td>{{e.product.product_name}}</td>
-                    <td>{{e.product.product_price_for_one}}</td>
-                    <td>{{e.quantity}}</td>
-                    <td>{{e.totalPrice}}</td>
-                </tr>
-            </div>
-            </tbody>
-        </table>
-        </tr>
+    <form>
+
+    </form>
+    <!--Transaction details fields-->
+    <div>
+
     </div>
-    </tbody>
-    </table>
-</div>
+    <!--Product detail field-->
+    <div>
+
+    </div>
 </div>
 </body>
 
