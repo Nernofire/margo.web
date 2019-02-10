@@ -82,8 +82,7 @@
                 <th> #</th>
                 <th> Name</th>
                 <th> Login</th>
-                <th> Password</th>
-                <th> Is deleted</th>
+                <th> Delete</th>
             </tr>
             </thead>
             <tbody>
@@ -91,8 +90,11 @@
                 <td>{{person.id}}</td>
                 <td>{{person.name}}</td>
                 <td>{{person.login}}</td>
-                <td>{{person.password}}</td>
-                <td>{{person.deleted}}</td>
+                <td>
+                    <form ng-submit="deleteSelectedPerson(person)">
+                        <input class="form-control btn-primary" value="Delete" type="submit"/>
+                    </form>
+                </td>
             </tr>
             </tbody>
         </table>

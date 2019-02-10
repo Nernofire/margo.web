@@ -37,6 +37,16 @@ app.controller("MainCtrl", function ($scope, $http) {
         });
     };
 
+    $scope.deleteSelectedPerson = function (person) {
+        $http({
+            method: 'POST',
+            url: '/api/person/delete',
+            data: person.id
+        }).then(function (response) {
+            $scope.people = response.data
+        });
+    };
+
     $scope.postNotification = function () {
         $http({
             method: "POST",

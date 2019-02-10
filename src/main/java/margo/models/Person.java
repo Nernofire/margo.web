@@ -14,6 +14,7 @@ import javax.persistence.*;
 public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(columnDefinition = "serial")
     private Integer id;
     private String name;
     @Column(nullable = false, unique = true)

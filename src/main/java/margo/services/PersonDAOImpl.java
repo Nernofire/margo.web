@@ -22,7 +22,7 @@ public class PersonDAOImpl implements PersonDAO {
 
     @Override
     public List<Person> getAll() {
-        return template.query("SELECT * FROM public.person", personRowMapper);
+        return template.query("SELECT * FROM public.person WHERE is_deleted = FALSE", personRowMapper);
     }
 
     @Override
@@ -38,5 +38,19 @@ public class PersonDAOImpl implements PersonDAO {
         int id = template.update(insertSQL, parameterSource);
         person.setId(id);
         return person;
+    }
+
+    @Override
+    public Person editPerson(Person person) {
+//        String insertSQL = "";
+        return null;
+    }
+
+    @Override
+    public void deletePerson(int id) {
+        String query = "UPDATE public.person SET is_deleted = TRUE WHERE id = :id";
+        MapSqlParameterSource parameterSource = new MapSqlParameterSource();
+        parameterSource.addValue("id", id);
+        template.update(query, parameterSource);
     }
 }

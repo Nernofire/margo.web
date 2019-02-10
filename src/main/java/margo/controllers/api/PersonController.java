@@ -30,4 +30,15 @@ public class PersonController {
         personDAO.savePerson(person);
         return new ResponseEntity(personDAO.getAll(), HttpStatus.OK);
     }
+
+//    public ResponseEntity<List<Person>> editPerson(@Valid @RequestBody Person person) {
+////        personDAO.editPerson(person);
+////        return new ResponseEntity<>(personDAO.getAll(), HttpStatus.OK);
+////    }
+
+    @PostMapping(value = "/delete")
+    public ResponseEntity<List<Person>> deletePerson(@Valid @RequestBody int id) {
+        personDAO.deletePerson(id);
+        return new ResponseEntity(personDAO.getAll(), HttpStatus.OK);
+    }
 }
