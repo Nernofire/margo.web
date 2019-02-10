@@ -8,44 +8,7 @@
 </head>
 
 <body ng-app="margoWeb">
-
-<!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
-            aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-        <a class="navbar-brand">Margo Web</a>
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="nav-item active">
-                <a class="nav-link" th:href="@{/home}">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false">
-                    API
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" th:href="@{/person}">People</a>
-                    <a class="dropdown-item" th:href="@{/notifications}">Notifications</a>
-                    <a class="dropdown-item" th:href="@{/transactions}">Transactions</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item">Something else here</a>
-                </div>
-            </li>
-        </ul>
-        <div class="custom-control-inline my-2 my-lg-0">
-            <div sec:authorize="isAuthenticated()">
-                Welcome <span sec:authentication="name"></span>!
-                <a class="btn btn-primary" th:href="@{/logout}">Log out</a>
-            </div>
-            <div sec:authorize="!isAuthenticated()">
-                <a class="btn btn-primary" th:href="@{/login}">Log in</a>
-            </div>
-        </div>
-    </div>
-</nav>
+<div th:insert="~{partials/sections :: section_header}"></div>
 
 <div ng-controller="MainCtrl">
     <!-- add new row -->
@@ -100,12 +63,8 @@
     </div>
 </div>
 
+<div th:insert="~{partials/sections :: section_footer}"></div>
 
 </body>
-
-<script src="webjars/jquery/3.3.1-1/jquery.min.js"></script>
-<script src="webjars/angularjs/1.7.4/angular.min.js"></script>
-<script src="webjars/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-<script src="js/main.js"></script>
 
 </html>
