@@ -19,7 +19,11 @@ public class TransactionDAOImpl implements TransactionDAO {
 
     @Override
     public List<Transaction> getALl() {
-        return transactionRepo.findAll();
+        List<Transaction> transactions = transactionRepo.findAll();
+        for (int i = 0; i < transactions.size(); i++) {
+            transactions.get(i).setTransaction_total_price(transactions.get(i).getTotalOrderPrice());
+        }
+        return transactions;
     }
 
     @Override

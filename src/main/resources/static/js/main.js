@@ -49,11 +49,13 @@ app.controller("MainCtrl", function ($scope, $http) {
 });
 app.controller("TransactionCtrl", function ($scope, $http) {
     $scope.transactions = [];
+    $scope.sum = [];
     $http({
         method: 'GET',
         url: 'api/transactions/getAll'
     }).then(function (response) {
         $scope.transactions = response.data;
+
     });
     $scope.postTransaction = function () {
         $http({
