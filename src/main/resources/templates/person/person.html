@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/xhtml"
+      lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Home</title>
+
+    <link href="/webjars/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+</head>
+
+<body ng-app="margoWeb">
+
+<!-- SECTION HEADER -->
+<div th:insert="~{partials/header :: section_header}"></div>
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- SECTION SIDEBAR -->
+        <div th:insert="~{partials/sidebar :: section__sidebar}"></div>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+
+            <h2>People list</h2>
+            <p>This page shows all users in the system.</p>
+
+            <!--/*@thymesVar id="build" type="margo.controllers.person.PersonController"*/-->
+            <a class="btn btn-success" th:href="${(#mvc.url('PC#creation')).build()}">Create new person</a>
+
+            <div ng-controller="MainCtrl">
+
+                <div class="table-responsive">
+                    <table class="table table-striped table-sm">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Login</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="person : ${people_list}">
+                            <td th:text="${person.id}">Id</td>
+                            <td th:text="${person.name}">Name</td>
+                            <td th:text="${person.login}">Login</td>
+                            <td>
+                                <!--/*@thymesVar id="build" type="margo.controllers.person.PersonController"*/-->
+                                <a class="btn btn-primary" th:href="${(#mvc.url('PC#editPerson')).arg(0, person.id).build()}">Edit</a>
+                            </td>
+                            <td>
+                                <form ng-submit="deleteSelectedPerson(person)">
+                                    <input class="form-control btn-danger" value="Delete" type="submit"/>
+                                </form>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+<!-- SECTION SCRIPTS -->
+<div th:insert="~{partials/scripts :: section__scripts}"></div>
+
+</body>
+
+</html>

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class MainController {
 
+
     @RequestMapping(value = {"/", "home"}, name = "/home")
     public String index() {
         return "home";
@@ -27,11 +28,6 @@ public class MainController {
     @GetMapping("/access-denied")
     public String actionAccessDenied(Model model) {
         return "errors/access_denied";
-    }
-
-    @RequestMapping(value = "/person")
-    public String person() {
-        return "person";
     }
 
     @RequestMapping(value = "/notifications")

@@ -15,8 +15,8 @@ import javax.validation.Valid;
 import java.util.List;
 
 @Controller
-@RequestMapping("/api/person")
-public class PersonController {
+@RequestMapping("/api")
+public class PersonApiController {
     @Autowired
     PersonDAOImpl personDAO;
 
@@ -31,10 +31,11 @@ public class PersonController {
         return new ResponseEntity(personDAO.getAll(), HttpStatus.OK);
     }
 
-//    public ResponseEntity<List<Person>> editPerson(@Valid @RequestBody Person person) {
-////        personDAO.editPerson(person);
-////        return new ResponseEntity<>(personDAO.getAll(), HttpStatus.OK);
-////    }
+    @PostMapping(value = "/edit")
+    public ResponseEntity<List<Person>> editPerson(@Valid @RequestBody Person person) {
+        personDAO.editPerson(person);
+        return new ResponseEntity<>(personDAO.getAll(), HttpStatus.OK);
+    }
 
     @PostMapping(value = "/delete")
     public ResponseEntity<List<Person>> deletePerson(@Valid @RequestBody int id) {
