@@ -27,6 +27,7 @@
                 <th> Orderer</th>
                 <th> Accepted date</th>
                 <th> Acceptor</th>
+                <th> Total Price</th>
                 <th> Deleted status</th>
             </tr>
             </thead>
@@ -45,8 +46,9 @@
                     <td>{{$index+1}}</td>
                     <td>{{i.transaction_date}}</td>
                     <td>{{i.transaction_orderer.name}}</td>
-                    <td>{{i.transaction_accepted_date}}</td>
+                    <td>{{Date.parse(i.transaction_accepted_date).}}</td>
                     <td>{{i.transaction_acceptor.name}}</td>
+                    <td>{{i.transaction_total_price}}</td>
                     <td>{{i.transaction_is_deleted}}</td>
                 </tr>
                 <tr>

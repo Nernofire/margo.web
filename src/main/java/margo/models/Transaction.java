@@ -41,6 +41,8 @@ public class Transaction {
     @Valid
     private List<TransactionProduct> transaction_product = new ArrayList<>();
 
+    private Double transaction_total_price;
+
     @Column(nullable = false)
     private boolean transaction_is_deleted;
 
