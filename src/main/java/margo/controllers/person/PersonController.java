@@ -5,7 +5,6 @@ import margo.services.PersonDAOImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -74,7 +73,7 @@ public class PersonController {
      * @param person collected data from front-end.
      * @return redirects to the main Person overview page
      */
-    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    @RequestMapping(value = "/update", method = RequestMethod.PUT)
     public String updatePerson(Person person) {
         personDAO.editPerson(person);
 

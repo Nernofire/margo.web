@@ -31,7 +31,7 @@
             <p>Edit selected person data.</p>
 
             <div th:each="p : ${person}">
-                <form th:action="@{/person/update}" th:object="${editedPerson}" method="post">
+                <form th:action="@{/person/update}" th:object="${editedPerson}" method="put">
                     <input type="hidden" name="id" th:value="${p.id}">
                     <div class="form-group">
                         <label for="username">Person name</label>
