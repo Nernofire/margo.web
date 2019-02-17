@@ -10,7 +10,7 @@ public interface PersonDAO {
     Person getOnePerson(Integer id);
     Person savePerson(Person person);
 
-    Person editPerson(Person person, Integer id);
+    Person editPerson(Person person);
 
     void deletePerson(Integer id);
 }

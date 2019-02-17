@@ -30,10 +30,10 @@ public class PersonDAOImpl implements PersonDAO {
     }
 
     @Override
-    public Person editPerson(Person person, Integer id) {
-        Optional<Person> personOptional = personRepo.findById(id);
+    public Person editPerson(Person person) {
+        Optional<Person> personOptional = personRepo.findById(person.getId());
         if (personOptional.isPresent()) {
-            person.setId(id);
+            person.setId(person.getId());
             return personRepo.save(person);
         }
         return null;
