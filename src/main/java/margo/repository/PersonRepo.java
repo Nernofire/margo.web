@@ -1,8 +1,7 @@
 package margo.repository;
 
 import margo.models.Person;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface PersonRepo extends CrudRepository<Person, Long> {
-    Person findByLogin(String login);
+public interface PersonRepo extends JpaRepository<Person, Integer> {
 }

@@ -6,8 +6,11 @@ import java.util.List;
 
 public interface PersonDAO {
     List<Person> getAll();
-    Person getOnePerson(int id);
+
+    Person getOnePerson(Integer id);
     Person savePerson(Person person);
-    Person editPerson(Person person);
-    void deletePerson(int id);
+
+    Person editPerson(Person person, Integer id);
+
+    void deletePerson(Integer id);
 }
